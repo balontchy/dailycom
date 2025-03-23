@@ -1,0 +1,466 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Apple iPhone 14 Pro",
+      "price": 1099.99,
+      "originalPrice": 1299.99,
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-7inch-deeppurple?wid=940&hei=1112&fmt=jpeg&qlt=90&.v=1660758493252",
+      "description": "Apple iPhone 14 Pro with stunning display, powerful A16 Bionic chip, and revolutionary camera system.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "128GB",
+          "price": 1099.99,
+          "originalPrice": 1299.99,
+          "inStock": true
+        },
+        {
+          "name": "256GB",
+          "price": 1199.99,
+          "originalPrice": 1399.99,
+          "inStock": true
+        },
+        {
+          "name": "512GB",
+          "price": 1399.99,
+          "originalPrice": 1599.99,
+          "inStock": true
+        },
+        {
+          "name": "1TB",
+          "price": 1599.99,
+          "originalPrice": 1799.99,
+          "inStock": false
+        }
+      ],
+      "colors": ["Deep Purple", "Gold", "Silver", "Space Black"],
+      "rating": 4.8,
+      "reviews": 1245
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy S23 Ultra",
+      "price": 1199.99,
+      "originalPrice": 1399.99,
+      "image": "https://image-us.samsung.com/us/smartphones/galaxy-s25/Gallery/PA1/PA1-01-Navy-1600x1200.jpg",
+      "description": "Samsung Galaxy S23 Ultra with 200MP camera, S Pen, and powerful Snapdragon processor.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "256GB",
+          "price": 1199.99,
+          "originalPrice": 1399.99,
+          "inStock": true
+        },
+        {
+          "name": "512GB",
+          "price": 1399.99,
+          "originalPrice": 1599.99,
+          "inStock": true
+        },
+        {
+          "name": "1TB",
+          "price": 1599.99,
+          "originalPrice": 1799.99,
+          "inStock": true
+        }
+      ],
+      "colors": ["Phantom Black", "Green", "Cream", "Lavender"],
+      "rating": 4.7,
+      "reviews": 982
+    },
+    {
+      "id": "3",
+      "name": "Sony WH-1000XM5 Headphones",
+      "price": 399.99,
+      "originalPrice": 599.99,
+      "image": "https://m.media-amazon.com/images/I/61D4Z3yKPAL._AC_SL1500_.jpg",
+      "description": "Sony WH-1000XM5 with industry-leading noise cancellation, premium sound quality, and up to 30 hours battery life.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "Standard",
+          "price": 399.99,
+          "originalPrice": 599.99,
+          "inStock": true
+        }
+      ],
+      "colors": ["Black", "Silver"],
+      "rating": 4.9,
+      "reviews": 3567
+    },
+    {
+      "id": "4",
+      "name": "MacBook Pro 16-inch (M2 Max)",
+      "price": 3499.99,
+      "originalPrice": 4299.99,
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spacegray-select-202301?wid=4000&hei=3072&fmt=jpeg&qlt=90&.v=1671304673229",
+      "description": "Apple MacBook Pro 16-inch with M2 Max Chip, stunning Liquid Retina XDR display, and exceptional battery life.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "16GB/512GB",
+          "price": 2499.99,
+          "originalPrice": 3299.99,
+          "inStock": true
+        },
+        {
+          "name": "32GB/1TB",
+          "price": 3499.99,
+          "originalPrice": 4299.99,
+          "inStock": true
+        },
+        {
+          "name": "64GB/2TB",
+          "price": 4499.99,
+          "originalPrice": 5299.99,
+          "inStock": false
+        }
+      ],
+      "colors": ["Space Gray", "Silver"],
+      "rating": 4.8,
+      "reviews": 726
+    },
+    {
+      "id": "5",
+      "name": "Sony PlayStation 5",
+      "price": 499.99,
+      "originalPrice": 600.99,
+      "image": "https://m.media-amazon.com/images/I/619BkvKW35L._AC_SL1500_.jpg",
+      "description": "Sony PlayStation 5 Console with lightning-fast loading, deeper immersion with haptic feedback, and stunning 4K gaming.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "Digital Edition",
+          "price": 399.99,
+          "originalPrice": 499.99,
+          "inStock": false
+        },
+        {
+          "name": "Disc Edition",
+          "price": 499.99,
+          "originalPrice": 600.99,
+          "inStock": true
+        },
+        {
+          "name": "Disc Edition + Extra Controller",
+          "price": 559.99,
+          "originalPrice": 660.99,
+          "inStock": true
+        }
+      ],
+      "colors": ["White"],
+      "rating": 4.9,
+      "reviews": 4152
+    },
+    {
+      "id": "6",
+      "name": "Apple AirPods Pro (2nd Gen)",
+      "price": 249.99,
+      "originalPrice": 279.99,
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQD83?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660803972361",
+      "description": "Apple AirPods Pro with active noise cancellation, spatial audio, and adaptive transparency mode.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "Standard",
+          "price": 249.99,
+          "originalPrice": 279.99,
+          "inStock": true
+        }
+      ],
+      "colors": ["White"],
+      "rating": 4.7,
+      "reviews": 2954
+    },
+    {
+      "id": "7",
+      "name": "iPad Pro 12.9-inch",
+      "price": 1099.99,
+      "originalPrice": 1299.99,
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-13-select-cell-spacegray-202210?wid=940&hei=1112&fmt=png-alpha&.v=1664411207929",
+      "description": "iPad Pro with M2 chip, Liquid Retina XDR display, and pro cameras with LiDAR Scanner.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "128GB WiFi",
+          "price": 1099.99,
+          "originalPrice": 1299.99,
+          "inStock": true
+        },
+        {
+          "name": "256GB WiFi",
+          "price": 1199.99,
+          "originalPrice": 1399.99,
+          "inStock": true
+        },
+        {
+          "name": "128GB WiFi+Cellular",
+          "price": 1299.99,
+          "originalPrice": 1499.99,
+          "inStock": true
+        },
+        {
+          "name": "256GB WiFi+Cellular",
+          "price": 1399.99,
+          "originalPrice": 1599.99,
+          "inStock": false
+        }
+      ],
+      "colors": ["Space Gray", "Silver"],
+      "rating": 4.8,
+      "reviews": 1385
+    },
+    {
+      "id": "8",
+      "name": "Bose QuietComfort Earbuds II",
+      "price": 279.99,
+      "originalPrice": 329.99,
+      "image": "https://m.media-amazon.com/images/I/51qRS8hb-9L._AC_SL1129_.jpg",
+      "description": "Bose QuietComfort Earbuds II with personalized noise cancellation and stunning sound quality.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "Standard",
+          "price": 279.99,
+          "originalPrice": 329.99,
+          "inStock": true
+        }
+      ],
+      "colors": ["Black", "Soapstone", "Midnight Blue"],
+      "rating": 4.6,
+      "reviews": 1854
+    },
+    {
+      "id": "9",
+      "name": "ASUS ROG Strix G15 Gaming Laptop",
+      "price": 1699.99,
+      "originalPrice": 1999.99,
+      "image": "https://m.media-amazon.com/images/I/71RK6+rx-xL._AC_SL1500_.jpg",
+      "description": "ASUS ROG Strix G15 with AMD Ryzen 9, NVIDIA RTX 3070, 16GB RAM, and 1TB SSD for ultimate gaming performance.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "RTX 3060/16GB/512GB",
+          "price": 1499.99,
+          "originalPrice": 1799.99,
+          "inStock": true
+        },
+        {
+          "name": "RTX 3070/16GB/1TB",
+          "price": 1699.99,
+          "originalPrice": 1999.99,
+          "inStock": true
+        },
+        {
+          "name": "RTX 3080/32GB/1TB",
+          "price": 2199.99,
+          "originalPrice": 2499.99,
+          "inStock": false
+        }
+      ],
+      "colors": ["Eclipse Gray", "Electro Punk"],
+      "rating": 4.5,
+      "reviews": 867
+    },
+    {
+      "id": "10",
+      "name": "Xbox Series X",
+      "price": 499.99,
+      "originalPrice": 599.99,
+      "image": "https://m.media-amazon.com/images/I/61JGKhqxHxL._SL1500_.jpg",
+      "description": "Xbox Series X with 12 teraflops of power, true 4K gaming, and lightning-fast load times.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "Standard",
+          "price": 499.99,
+          "originalPrice": 599.99,
+          "inStock": true
+        },
+        {
+          "name": "With Extra Controller",
+          "price": 559.99,
+          "originalPrice": 659.99,
+          "inStock": true
+        },
+        {
+          "name": "With Game Pass (3 months)",
+          "price": 544.99,
+          "originalPrice": 644.99,
+          "inStock": true
+        }
+      ],
+      "colors": ["Black"],
+      "rating": 4.8,
+      "reviews": 3214
+    },
+    {
+      "id": "11",
+      "name": "Samsung 65\" OLED 4K TV",
+      "price": 1999.99,
+      "originalPrice": 2499.99,
+      "image": "https://m.media-amazon.com/images/I/81sPPmgBpPL._AC_SL1500_.jpg",
+      "description": "Samsung 65-inch OLED 4K Smart TV with incredible contrast, vivid colors, and smart features.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "55-inch",
+          "price": 1499.99,
+          "originalPrice": 1899.99,
+          "inStock": true
+        },
+        {
+          "name": "65-inch",
+          "price": 1999.99,
+          "originalPrice": 2499.99,
+          "inStock": true
+        },
+        {
+          "name": "77-inch",
+          "price": 2999.99,
+          "originalPrice": 3499.99,
+          "inStock": false
+        }
+      ],
+      "colors": ["Black"],
+      "rating": 4.7,
+      "reviews": 1425
+    },
+    {
+      "id": "12",
+      "name": "Apple Watch Series 8",
+      "price": 399.99,
+      "originalPrice": 449.99,
+      "image": "https://m.media-amazon.com/images/I/61HI3m7dqrL._AC_SL1500_.jpg",
+      "description": "Apple Watch Series 8 with advanced health sensors, crack-resistant front crystal, and always-on Retina display.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "41mm GPS",
+          "price": 399.99,
+          "originalPrice": 449.99,
+          "inStock": true
+        },
+        {
+          "name": "45mm GPS",
+          "price": 429.99,
+          "originalPrice": 479.99,
+          "inStock": true
+        },
+        {
+          "name": "41mm GPS+Cellular",
+          "price": 499.99,
+          "originalPrice": 549.99,
+          "inStock": true
+        },
+        {
+          "name": "45mm GPS+Cellular",
+          "price": 529.99,
+          "originalPrice": 579.99,
+          "inStock": true
+        }
+      ],
+      "colors": ["Midnight", "Starlight", "Silver", "Red"],
+      "rating": 4.8,
+      "reviews": 2863
+    },
+    {
+      "id": "13",
+      "name": "Canon EOS R5 Mirrorless Camera",
+      "price": 3899.99,
+      "originalPrice": 4299.99,
+      "image": "https://m.media-amazon.com/images/I/71hpUUcC5uL._AC_SL1500_.jpg",
+      "description": "Canon EOS R5 full-frame mirrorless camera with 8K video recording, 45MP sensor, and in-body stabilization.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "Body Only",
+          "price": 3899.99,
+          "originalPrice": 4299.99,
+          "inStock": true
+        },
+        {
+          "name": "With 24-105mm f/4L Lens",
+          "price": 4999.99,
+          "originalPrice": 5399.99,
+          "inStock": true
+        },
+        {
+          "name": "With 28-70mm f/2L Lens",
+          "price": 5999.99,
+          "originalPrice": 6399.99,
+          "inStock": false
+        }
+      ],
+      "colors": ["Black"],
+      "rating": 4.9,
+      "reviews": 752
+    },
+    {
+      "id": "14",
+      "name": "Dell XPS 15 Laptop",
+      "price": 1999.99,
+      "originalPrice": 2299.99,
+      "image": "https://m.media-amazon.com/images/I/71jG+e7roXL._AC_SL1500_.jpg",
+      "description": "Dell XPS 15 with 12th Gen Intel Core i7, NVIDIA RTX 3050 Ti, 16GB RAM, and stunning 15.6\" OLED display.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "i5/16GB/512GB",
+          "price": 1699.99,
+          "originalPrice": 1999.99,
+          "inStock": true
+        },
+        {
+          "name": "i7/16GB/1TB",
+          "price": 1999.99,
+          "originalPrice": 2299.99,
+          "inStock": true
+        },
+        {
+          "name": "i9/32GB/2TB",
+          "price": 2699.99,
+          "originalPrice": 2999.99,
+          "inStock": true
+        }
+      ],
+      "colors": ["Platinum Silver", "Frost White"],
+      "rating": 4.6,
+      "reviews": 945
+    },
+    {
+      "id": "15",
+      "name": "DJI Mavic 3 Pro Drone",
+      "price": 2199.99,
+      "originalPrice": 2499.99,
+      "image": "https://m.media-amazon.com/images/I/51-ea9EabtL._AC_SL1024_.jpg",
+      "description": "DJI Mavic 3 Pro with Hasselblad camera, 5.1K video, 46-minute flight time, and omnidirectional obstacle sensing.",
+      "category": "electronics",
+      "sizes": [
+        {
+          "name": "Standard",
+          "price": 2199.99,
+          "originalPrice": 2499.99,
+          "inStock": true
+        },
+        {
+          "name": "Fly More Combo",
+          "price": 2999.99,
+          "originalPrice": 3299.99,
+          "inStock": true
+        },
+        {
+          "name": "Cine Premium Combo",
+          "price": 4799.99,
+          "originalPrice": 5099.99,
+          "inStock": false
+        }
+      ],
+      "colors": ["Gray"],
+      "rating": 4.8,
+      "reviews": 576
+    }
+  ]
+}
