@@ -50,7 +50,9 @@ function Navbar() {
               key={key}
               href={item.link}
               className={`flex items-center  gap-2 text-sm hover:text-amber-500 font-semibold transition ${
-                path === item.link ? "text-amber-500" : "text-black dark:text-white"
+                path === item.link
+                  ? "text-amber-500"
+                  : "text-black dark:text-white"
               }`}
             >
               <span className="hidden 2xl:flex ">{item.icon}</span>
@@ -58,30 +60,54 @@ function Navbar() {
             </Link>
           ))}
         </ul>
+
         <div className="flex gap-3 items-center">
+          <div className="flex items-center gap-3">
+            {/* Dark mode toggle */}
+            <button
+              className={`p-2 rounded-full dark:bg-gray-700 text-black bg-amber-100 dark:text-amber-600 `}
+              onClick={toggleTheme}
+              aria-label={
+                theme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+              }
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
+          </div>
           {!isAuthenticated ? (
             <LoginLink className="bg-neutral-50 dark:bg-gray-700 px-3 text-blue-900 dark:text-blue-50 rounded-xl py-3 font-sm">
               تسجيل الدخول
             </LoginLink>
           ) : (
-            <div>
-              {(user?.picture as string) ? (
-                <Image
-                  className="rounded-full"
-                  onClick={handleChangeUserInformation}
-                  width={30}
-                  height={30}
-                  src={user?.picture as string}
-                  alt="user"
-                />
-              ) : (
-                <div>{user?.given_name}</div>
-              )}
-
+            <div
+              className=" bg-gray-300 dark:bg-gray-900 py-1 px-3 rounded-sm "
+            >
+              <button
+              onClick={handleChangeUserInformation}
+              className="flex items-center justify-center gap-2">
+                {user?.given_name} {user?.family_name}
+                {(user?.picture as string) ? (
+                  <Image
+                    className="rounded-full"
+                    width={30}
+                    height={30}
+                    src={user?.picture as string}
+                    alt="user"
+                  />
+                ) : (
+                  <div>{user?.given_name}</div>
+                )}
+              </button>
               {showUserInformation && (
                 <div
                   onMouseLeave={handleChangeUserInformation}
-                  className="flex flex-col mt-3 justify-center align-middle items-center right-2 z-90 fixed border border-neutral-400 dark:border-neutral-700  bg-white dark:bg-gray-900 text-black px-3 py-2 rounded-md shadow-md"
+                  className="flex flex-col mt-3 justify-center align-middle items-center right-10 top-16 z-90 fixed border border-neutral-400 dark:border-neutral-700  bg-white dark:bg-gray-900 text-black px-3 py-2 rounded-md shadow-md"
                 >
                   <div className="font-bold uppercase text-xl py-3 dark:text-white  ">
                     {user?.given_name} {user?.family_name}
@@ -98,22 +124,6 @@ function Navbar() {
           )}
           {/* Removed invalid use of useKindeAuth */}
           {/* Dark mode toggle + Mobile menu button container */}
-          <div className="flex items-center gap-3">
-            {/* Dark mode toggle */}
-            <button
-              className={`p-2 rounded-full dark:bg-gray-700 text-black bg-amber-100 dark:text-amber-600 `}
-              onClick={toggleTheme}
-              aria-label={
-                theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-              }
-            >
-              {theme === "dark" ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </button>
-          </div>
 
           {/* Mobile menu button */}
           <button
