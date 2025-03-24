@@ -1,0 +1,36 @@
+{
+  "stores": [
+    {
+      "name": "MindE Store 1",
+      "image": "https://example.com/store1.jpg",
+      "description": "A premium store for all your needs.",
+      "address": "123 Main Street, City, Country",
+      "rating": 4.5,
+      "contact": {
+        "phone": "+1234567890",
+        "email": "contact@store1.com"
+      },
+      "categories": ["Electronics", "Books", "Toys"],
+      "opening_hours": {
+        "Monday-Friday": "9:00 AM - 9:00 PM",
+        "Saturday-Sunday": "10:00 AM - 6:00 PM"
+      }
+    },
+    {
+      "name": "MindE Store 2",
+      "image": "https://example.com/store2.jpg",
+      "description": "Your one-stop shop for quality products.",
+      "address": "456 Market Street, City, Country",
+      "rating": 4.7,
+      "contact": {
+        "phone": "+0987654321",
+        "email": "info@store2.com"
+      },
+      "categories": ["Clothing", "Accessories", "Home Decor"],
+      "opening_hours": {
+        "Monday-Saturday": "10:00 AM - 8:00 PM",
+        "Sunday": "Closed"
+      }
+    }
+  ]
+}

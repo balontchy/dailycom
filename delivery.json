@@ -1,0 +1,38 @@
+{
+  "delivery_services": [
+    {
+      "name": "Amana Maroc",
+      "image": "https://example.com/amana.jpg",
+      "description": "Reliable and secure delivery across Morocco.",
+      "contact": {
+        "phone": "+212522437000",
+        "email": "contact@amana.ma"
+      },
+      "coverage_area": "All cities in Morocco",
+      "pricing": {
+        "Casablanca": { "price": "30 MAD", "delivery_time": "24 hours" },
+        "Rabat": { "price": "35 MAD", "delivery_time": "24 hours" },
+        "Marrakech": { "price": "40 MAD", "delivery_time": "36 hours" },
+        "Tangier": { "price": "45 MAD", "delivery_time": "36 hours" },
+        "Fes": { "price": "35 MAD", "delivery_time": "30 hours" }
+      }
+    },
+    {
+      "name": "Jibli Express",
+      "image": "https://example.com/jibli.jpg",
+      "description": "Fast and affordable delivery service in Morocco.",
+      "contact": {
+        "phone": "+212661234567",
+        "email": "support@jibli.ma"
+      },
+      "coverage_area": "Major Moroccan cities",
+      "pricing": {
+        "Casablanca": { "price": "25 MAD", "delivery_time": "12 hours" },
+        "Rabat": { "price": "30 MAD", "delivery_time": "14 hours" },
+        "Fes": { "price": "35 MAD", "delivery_time": "16 hours" },
+        "Agadir": { "price": "40 MAD", "delivery_time": "18 hours" },
+        "Marrakech": { "price": "38 MAD", "delivery_time": "20 hours" }
+      }
+    }
+  ]
+}
