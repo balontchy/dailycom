@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="w-full flex flex-col items-center">
       <div className="grid grid-cols-1 pt-30 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-        {paginatedProducts.map((product) => (
+        { paginatedProducts.map((product) => (
           <ProductCard key={product.id} product={product} onQuickView={() => router.push(`/products/${product.id}`)} />
         ))}
       </div>

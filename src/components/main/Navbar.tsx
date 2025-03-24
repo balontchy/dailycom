@@ -1,131 +1,123 @@
 "use client";
 import Link from 'next/link'
-import React, { useState, useEffect } from 'react'
-import { Home, Store, Truck, MessageSquare, Heart, ShoppingCart, Menu, X, Moon, Sun } from 'lucide-react'
+import React, { useState } from 'react'
+import { Menu, X, Moon, Sun} from 'lucide-react'
+import { LoginLink,LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
+import {useTheme} from "@/components/main/themeProvider"
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { nav } from './link';
 
-interface INav {
-  nav: string;
-  link: string;
-  icon: React.ReactNode;
-}
 
-const nav: INav[] = [
-  {
-    nav: "الرئيسية",
-    link: "/",
-    icon: <Home className="w-5 h-5" />
-  },
-  {
-    nav: "المتاجر",
-    link: "#",
-    icon: <Store className="w-5 h-5" />
-  },
-  {
-    nav: "التوصيل",
-    link: "#",
-    icon: <Truck className="w-5 h-5" />
-  },
-  {
-    nav: "المفضلة",
-    link: "#",
-    icon: <Heart className="w-5 h-5" />
-  },
-  {
-    nav: "السلة",
-    link: "#",
-    icon: <ShoppingCart className="w-5 h-5" />
-  },
-  {
-    nav: "تواصل معنا",
-    link: "#",
-    icon: <MessageSquare className="w-5 h-5" />
-  },
-];
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-  
-  // Initialize dark mode based on user preference or system setting
-  useEffect(() => {
-    // Check if user has a preference stored
-    const savedDarkMode = localStorage.getItem('darkMode');
-    
-    if (savedDarkMode) {
-      setDarkMode(savedDarkMode === 'true');
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setDarkMode(prefersDark);
-    }
-  }, []);
-  
-  // Update document class and localStorage when darkMode state changes
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    
-    localStorage.setItem('darkMode', darkMode.toString());
-  }, [darkMode]);
-  
+  const { theme,toggleTheme } = useTheme();
+  const path = usePathname();
+   const { user, isAuthenticated } = useKindeAuth();
+   const [showUserInformation,setShowUserInfromation] = useState(false);
+ 
+   const handleChangeUserInformation = () => {
+    setShowUserInfromation(!showUserInformation);
+   }
+   
   const toggleMenu = () => setIsOpen(!isOpen);
-  const toggleDarkMode = () => setDarkMode(!darkMode);
   
   return (
-    <nav className={`fixed rounded-2xl top-3 left-0 right-0 w-[95%] md:w-[90%] lg:w-[80%] m-auto backdrop-blur-lg z-50 ${
-      darkMode 
-        ? 'bg-gray-900/40 border-gray-700 text-white' 
-        : 'bg-white/40 border-neutral-300 text-black'
-    } border shadow-md transition-colors duration-300`}>
-      <div className="px-4 md:px-6 lg:px-10 py-4 flex justify-between items-center">
+    <nav
+      className={`fixed rounded-2xl top-3 left-0 right-0 w-[95%] md:w-[90%] lg:w-[80%] m-auto backdrop-blur-lg z-50 dark:bg-gray-900/40 dark:border-gray-700 dark:text-white bg-white/40 border-neutral-300 text-black border shadow-md transition-colors duration-300`}
+    >
+      <div className="px-4 md:px-6 lg:px-10 py-4 flex justify-between  items-center">
         {/* Logo - Same on mobile and desktop */}
-        <h1 className="text-xl md:text-2xl font-bold flex justify-center align-middle items-center">
-          <p className={`${darkMode ? 'text-amber-300 bg-gray-600' : 'text-amber-300 bg-black'} rounded-l-3xl text-md px-2 mb-3 rounded-tr-3xl `}>
+        <div className="md:text-2xl font-bold flex dark:bg-gray-900/20 bg-white/20  border border-gray-300 dark:border-gray-700  rounded-full p-3 justify-center align-middle items-center">
+          <p
+            className={`text-white bg-gray-500 rounded-l-3xl px-2 mb-3 text-md rounded-tr-3xl `}
+          >
             daily
           </p>
-          <p className={`${darkMode ? 'text-gray-900 bg-amber-300' : 'text-black bg-amber-300'} rounded-r-3xl text-md px-2 mt-3 rounded-bl-3xl`}>
+          <p
+            className={` text-black bg-gray-300 rounded-r-3xl px-2 mt-3 text-md rounded-bl-3xl`}
+          >
             store
           </p>
-        </h1>
-
-    
+        </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-6 items-center">
+        <ul className="hidden xl:flex space-x-6 items-center">
           {nav.map((item, key) => (
-            <Link 
-              key={key} 
-              href={item.link} 
-              className={`flex items-center gap-2 text-sm hover:text-amber-500 font-semibold transition ${
-                item.nav === 'الرئيسية' 
-                  ? 'text-amber-500' 
-                  : darkMode ? 'text-white' : 'text-black'
+            <Link
+              key={key}
+              href={item.link}
+              className={`flex items-center  gap-2 text-sm hover:text-amber-500 font-semibold transition ${
+                path === item.link ? "text-amber-500" : "text-black dark:text-white"
               }`}
             >
-              {item.icon}
+              <span className="hidden 2xl:flex ">{item.icon}</span>
               <span>{item.nav}</span>
             </Link>
           ))}
         </ul>
-            {/* Dark mode toggle + Mobile menu button container */}
-        <div className="flex items-center gap-3">
-          {/* Dark mode toggle */}
-          <button 
-            onClick={toggleDarkMode}
-            className={`p-2 rounded-full ${
-              darkMode ? 'bg-gray-700 text-amber-300' : 'bg-amber-100 text-amber-600'
-            }`}
-            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
-          
+        <div className="flex gap-3 items-center">
+          {!isAuthenticated ? (
+            <LoginLink className="bg-neutral-50 dark:bg-gray-700 px-3 text-blue-900 dark:text-blue-50 rounded-xl py-3 font-sm">
+              تسجيل الدخول
+            </LoginLink>
+          ) : (
+            <div>
+              {(user?.picture as string) ? (
+                <Image
+                  className="rounded-full"
+                  onClick={handleChangeUserInformation}
+                  width={30}
+                  height={30}
+                  src={user?.picture as string}
+                  alt="user"
+                />
+              ) : (
+                <div>{user?.given_name}</div>
+              )}
+
+              {showUserInformation && (
+                <div
+                  onMouseLeave={handleChangeUserInformation}
+                  className="flex flex-col mt-3 justify-center align-middle items-center right-2 z-90 fixed border border-neutral-400 dark:border-neutral-700  bg-white dark:bg-gray-900 text-black px-3 py-2 rounded-md shadow-md"
+                >
+                  <div className="font-bold uppercase text-xl py-3 dark:text-white  ">
+                    {user?.given_name} {user?.family_name}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-300 italic ">
+                    {user?.email}
+                  </div>
+                  <LogoutLink className="bg-red-400 text-white w-full py-1 rounded-md shadow-md border border-red-500 my-3 text-center m-auto ">
+                    تسجيل الخروج
+                  </LogoutLink>
+                </div>
+              )}
+            </div>
+          )}
+          {/* Removed invalid use of useKindeAuth */}
+          {/* Dark mode toggle + Mobile menu button container */}
+          <div className="flex items-center gap-3">
+            {/* Dark mode toggle */}
+            <button
+              className={`p-2 rounded-full dark:bg-gray-700 text-black bg-amber-100 dark:text-amber-600 `}
+              onClick={toggleTheme}
+              aria-label={
+                theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+              }
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+
           {/* Mobile menu button */}
-          <button 
-            className="md:hidden flex items-center"
+          <button
+            className="xl:hidden flex items-center"
             onClick={toggleMenu}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -136,24 +128,25 @@ function Navbar() {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className={`md:hidden px-4 pb-4 rounded-b-2xl border-t ${
-          darkMode 
-            ? 'bg-gray-800/90 border-gray-700' 
-            : 'bg-white/60 border-neutral-200'
-        }`}>
+        <div
+          className={`xl:hidden px-4 pb-4 rounded-b-2xl border-t 
+               bg-gray-800/90 border-gray-700
+               dark:bg-white/60 dark:border-neutral-200
+          }`}
+        >
           <ul className="flex flex-col space-y-3 pt-2 text-right">
             {nav.map((item, key) => (
               <Link
                 key={key}
                 href={item.link}
                 className={`flex items-center justify-end gap-2 py-2 px-3 rounded-lg ${
-                  darkMode 
-                    ? item.nav === 'الرئيسية'
-                      ? 'text-amber-500 bg-gray-700/50' 
-                      : 'text-white hover:bg-gray-700/30'
-                    : item.nav === 'الرئيسية'
-                      ? 'text-amber-600 bg-amber-50' 
-                      : 'text-black hover:bg-amber-100'
+                  theme === "dark"
+                    ? item.link === path
+                      ? "text-amber-500 bg-gray-700/50"
+                      : "text-white hover:bg-gray-700/30"
+                    : item.nav === "الرئيسية"
+                    ? "text-amber-600 bg-amber-50"
+                    : "text-black hover:bg-amber-100"
                 } transition`}
                 onClick={() => setIsOpen(false)}
               >

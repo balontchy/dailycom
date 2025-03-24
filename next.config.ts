@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
       "store.storeimages.cdn-apple.com", // أضف نطاق Apple
       "image-us.samsung.com", // أضف نطاق Samsung
       "m.media-amazon.com", // أضف نطاق Amazon
+       "lh3.googleusercontent.com",
+       "platform-lookaside.fbsbx.com"
     ], // أضف هنا أي نطاقات أخرى تستخدمها للصور
   },
 };
