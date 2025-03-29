@@ -19,5 +19,6 @@ export interface IProduct {
   colors?: string[];
   rating?: number;
   reviews?: number;
+  quantity?:number;
 }
   

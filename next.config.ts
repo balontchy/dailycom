@@ -8,7 +8,9 @@ const nextConfig: NextConfig = {
       "image-us.samsung.com", // أضف نطاق Samsung
       "m.media-amazon.com", // أضف نطاق Amazon
        "lh3.googleusercontent.com",
-       "platform-lookaside.fbsbx.com"
+       "platform-lookaside.fbsbx.com",
+       "via.placeholder.com",
+       "images.pexels.com"
     ], // أضف هنا أي نطاقات أخرى تستخدمها للصور
   },
 };

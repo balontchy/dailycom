@@ -30,7 +30,7 @@ function Navbar() {
     >
       <div className="px-4 md:px-6 lg:px-10 py-4 flex justify-between  items-center">
         {/* Logo - Same on mobile and desktop */}
-        <div className="md:text-2xl font-bold flex dark:bg-gray-900/20 bg-white/20  border border-gray-300 dark:border-gray-700  rounded-full p-3 justify-center align-middle items-center">
+        <div className="md:text-2xl font-bold flex dark:bg-gray-900/20 bg-white/20    rounded-full p-3 justify-center align-middle items-center">
           <p
             className={`text-white bg-gray-500 rounded-l-3xl px-2 mb-3 text-md rounded-tr-3xl `}
           >

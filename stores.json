@@ -1,8 +1,9 @@
 {
   "stores": [
     {
+      "id": 1,
       "name": "MindE Store 1",
-      "image": "https://example.com/store1.jpg",
+      "image": "https://images.pexels.com/photos/1437318/pexels-photo-1437318.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "description": "A premium store for all your needs.",
       "address": "123 Main Street, City, Country",
       "rating": 4.5,
@@ -14,11 +15,13 @@
       "opening_hours": {
         "Monday-Friday": "9:00 AM - 9:00 PM",
         "Saturday-Sunday": "10:00 AM - 6:00 PM"
-      }
+      },
+      "verified": true
     },
     {
+      "id": 2,
       "name": "MindE Store 2",
-      "image": "https://example.com/store2.jpg",
+      "image": "https://images.pexels.com/photos/988952/pexels-photo-988952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "description": "Your one-stop shop for quality products.",
       "address": "456 Market Street, City, Country",
       "rating": 4.7,
@@ -30,7 +33,119 @@
       "opening_hours": {
         "Monday-Saturday": "10:00 AM - 8:00 PM",
         "Sunday": "Closed"
-      }
+      },
+      "verified": false
+    },
+    {
+      "id": 3,
+      "name": "MindE Store 3",
+      "image": "https://images.pexels.com/photos/1234567/pexels-photo-1234567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "Affordable products for everyone.",
+      "address": "789 Elm Street, City, Country",
+      "rating": 4.3,
+      "contact": {
+        "phone": "+1122334455",
+        "email": "support@store3.com"
+      },
+      "categories": ["Groceries", "Health", "Beauty"],
+      "opening_hours": {
+        "Monday-Friday": "8:00 AM - 8:00 PM",
+        "Saturday": "9:00 AM - 5:00 PM",
+        "Sunday": "Closed"
+      },
+      "verified": true
+    },
+    {
+      "id": 4,
+      "name": "MindE Store 4",
+      "image": "https://images.pexels.com/photos/164903/pexels-photo-164903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "Luxury items for a sophisticated lifestyle.",
+      "address": "1010 Luxury Lane, City, Country",
+      "rating": 4.9,
+      "contact": {
+        "phone": "+9988776655",
+        "email": "luxury@store4.com"
+      },
+      "categories": ["Jewelry", "Watches", "Designer Clothing"],
+      "opening_hours": {
+        "Monday-Saturday": "10:00 AM - 9:00 PM",
+        "Sunday": "12:00 PM - 6:00 PM"
+      },
+      "verified": true
+    },
+    {
+      "id": 5,
+      "name": "MindE Store 5",
+      "image": "https://images.pexels.com/photos/2587175/pexels-photo-2587175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "Tech gadgets and accessories.",
+      "address": "2020 Tech Avenue, City, Country",
+      "rating": 4.6,
+      "contact": {
+        "phone": "+6677889900",
+        "email": "tech@store5.com"
+      },
+      "categories": ["Electronics", "Gadgets", "Accessories"],
+      "opening_hours": {
+        "Monday-Friday": "9:00 AM - 7:00 PM",
+        "Saturday": "10:00 AM - 6:00 PM",
+        "Sunday": "Closed"
+      },
+      "verified": false
+    },
+    {
+      "id": 6,
+      "name": "MindE Store 6",
+      "image": "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "Your local pet supply store.",
+      "address": "3030 Pet Street, City, Country",
+      "rating": 4.4,
+      "contact": {
+        "phone": "+1234432100",
+        "email": "pets@store6.com"
+      },
+      "categories": ["Pet Supplies", "Pet Food", "Accessories"],
+      "opening_hours": {
+        "Monday-Saturday": "9:00 AM - 6:00 PM",
+        "Sunday": "10:00 AM - 4:00 PM"
+      },
+      "verified": true
+    },
+    {
+      "id": 7,
+      "name": "MindE Store 7",
+      "image": "https://images.pexels.com/photos/768125/pexels-photo-768125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "All your gardening needs.",
+      "address": "4040 Garden Road, City, Country",
+      "rating": 4.8,
+      "contact": {
+        "phone": "+5566778899",
+        "email": "garden@store7.com"
+      },
+      "categories": ["Plants", "Tools", "Outdoor Decor"],
+      "opening_hours": {
+        "Monday-Friday": "8:00 AM - 7:00 PM",
+        "Saturday": "9:00 AM - 6:00 PM",
+        "Sunday": "Closed"
+      },
+      "verified": true
+    },
+    {
+      "id": 8,
+      "name": "MindE Store 8",
+      "image": "https://images.pexels.com/photos/1036808/pexels-photo-1036808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "Everything for your car.",
+      "address": "5050 Auto Drive, City, Country",
+      "rating": 4.2,
+      "contact": {
+        "phone": "+1122998877",
+        "email": "auto@store8.com"
+      },
+      "categories": ["Parts", "Accessories", "Service"],
+      "opening_hours": {
+        "Monday-Saturday": "7:00 AM - 8:00 PM",
+        "Sunday": "8:00 AM - 5:00 PM"
+      },
+      "verified": false
     }
   ]
 }

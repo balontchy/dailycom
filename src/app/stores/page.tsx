@@ -1,11 +1,12 @@
+import StoreCard from '@/components/primative/stores/StoreMain'
 import React from 'react'
 
 function page() {
   return (
-    <div className="w-fulll min-h-screen flex justify-center aling-middle items-center">
-      Stores
+    <div>
+      <StoreCard  />
     </div>
-  );
+  )
 }
 
 export default page
