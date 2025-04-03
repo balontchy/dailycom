@@ -65,10 +65,10 @@ const ContactPage = () => {
         <meta name="description" content="Get in touch with DailySofts. We're here to help with all your software development needs." />
       </Head>
 
-      <div className="bg-gray-50 min-h-screen ">
+      <div className="min-h-screen ">
         {/* Header Banner */}
-        <div className="bg-blue-600 text-white py-16">
-          <div className="container mx-auto px-4 pt-20">
+        <div className="bg-blue-600 text-white py-16 w-[80%] h-[200px] m-auto mt-30 rounded-2xl">
+          <div className="container mx-auto px-4 ">
             <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
             <p className="text-xl max-w-2xl">
               {`Have questions about our services? Want to discuss your project? We're here to help!`}
@@ -144,7 +144,7 @@ const ContactPage = () => {
                 <div className="mt-8">
                   <h3 className="text-lg font-medium text-gray-900 mb-4">Follow Us</h3>
                   <div className="flex space-x-4">
-                    <a href="https://www.facebook.com/dailysofts" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600">
+                    <a href="https://www.facebook.com/profile.php?id=61570890038006" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600">
                       <span className="sr-only">Facebook</span>
                       <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />

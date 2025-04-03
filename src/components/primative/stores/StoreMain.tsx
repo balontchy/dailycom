@@ -22,6 +22,28 @@ export interface StoreData {
   };
   verified: boolean;
 }
+export const categoryTranslations = {
+  "Electronics": "إلكترونيات",
+  "Books": "كتب",
+  "Toys": "ألعاب",
+  "Clothing": "ملابس",
+  "Accessories": "إكسسوارات",
+  "Home Decor": "ديكور المنزل",
+  "Groceries": "بقالة",
+  "Health": "الصحة",
+  "Beauty": "الجمال",
+  "Jewelry": "مجوهرات",
+  "Watches": "ساعات",
+  "Designer Clothing": "ملابس مصممين",
+  "Gadgets": "أدوات",
+  "Pet Supplies": "مستلزمات الحيوانات الأليفة",
+  "Pet Food": "طعام الحيوانات الأليفة",
+  "Plants": "نباتات",
+  "Tools": "أدوات",
+  "Outdoor Decor": "ديكور خارجي",
+  "Parts": "قطع غيار",
+  "Service": "خدمة"
+};
 
 
 
@@ -65,6 +87,11 @@ const StoreMain: React.FC = () => {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+  const [handleFilter,setHandleFilter] = useState(false) 
+  const toggleFilter = () => {
+    // Implement filter toggle functionality here
+    setHandleFilter(!handleFilter)
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-6">
@@ -72,7 +99,8 @@ const StoreMain: React.FC = () => {
         {/* Header */}
         <div className="mt-30 text-center">
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-bold text-2xl mb-4">
-            استكشف شبكتنا من المتاجر المذهلة التي تقدم مجموعة واسعة من المنتجات والخدمات
+            استكشف شبكتنا من المتاجر المذهلة التي تقدم مجموعة واسعة من المنتجات
+            والخدمات
           </p>
         </div>
 
@@ -88,30 +116,38 @@ const StoreMain: React.FC = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <Search className="absolute left-3 top-3 text-gray-400" size={18} />
-            <Filter className="text-gray-500 mx-2" size={20} />
+            <Filter
+              onClick={toggleFilter}
+              className="text-gray-500 mx-2"
+              size={20}
+            />
           </div>
 
           {/* Category Filters */}
-          <div className="flex items-center space-x-2">
-            <div className="flex space-x-2 bg-gray-100 dark:bg-gray-950 w-auto  scroll-p-2  overflow-x-auto rounded-full p-2">
-              {allCategories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => toggleCategory(category)}
-                  className={`
-                    px-3 py-1 rounded-full text-sm transition-all
+          {handleFilter && (
+            <div className="flex items-center space-x-2">
+              <div className=" grid grid-cols-3 md:grid-cols-6 lg:grid-cols-10 xl:grid-cols-12 gap-3 space-x-2 bg-gray-100 dark:bg-gray-950 w-auto  scroll-p-2  overflow-x-auto rounded-md p-2">
+                {allCategories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => toggleCategory(category)}
+                    className={`
+                    px-3 py-1 rounded-md text-sm transition-all
                     ${
                       selectedCategories.includes(category)
                         ? "bg-blue-500 text-white"
                         : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                     }
                   `}
-                >
-                  {category}
-                </button>
-              ))}
+                  >
+                    {categoryTranslations[
+                      category as keyof typeof categoryTranslations
+                    ] || category}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Stores Grid */}

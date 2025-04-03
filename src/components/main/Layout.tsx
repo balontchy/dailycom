@@ -9,15 +9,14 @@ import { ThemeProvider } from './themeProvider';
 function Layout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <div className="w-full min-h-screen h-full flex flex-col justify-between">
-      <ThemeProvider>
-
       <KindeProvider>
-        <SpeedInsights />
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <SpeedInsights />
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </KindeProvider>
-      </ThemeProvider>
     </div>
   );
 }

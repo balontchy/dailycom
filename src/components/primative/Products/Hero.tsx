@@ -19,6 +19,7 @@ import { IProduct } from "../../../../type";
 import { Slider } from "@/components/ui/slider";
 import productsJson from '../../../../json/product.json';
 import ProductMain from "./ProductMain";
+import Link from "next/link";
 
 // نحدد الفئات بناءً على بيانات المنتجات المتاحة
 const categories = [
@@ -26,7 +27,25 @@ const categories = [
   { id: "smartphones", name: "هواتف ذكية" },
   { id: "accessories", name: "اكسسوارات" },
   { id: "computers", name: "حواسيب" },
-  { id: "tablets", name: "أجهزة لوحية" }
+  { id: "tablets", name: "أجهزة لوحية" },
+  { id: "books", name: "كتب" },
+  { id: "toys", name: "ألعاب" },
+  { id: "clothing", name: "ملابس" },
+  { id: "home-decor", name: "ديكور المنزل" },
+  { id: "groceries", name: "بقالة" },
+  { id: "health", name: "الصحة" },
+  { id: "beauty", name: "الجمال" },
+  { id: "jewelry", name: "مجوهرات" },
+  { id: "watches", name: "ساعات" },
+  { id: "designer-clothing", name: "ملابس مصممين" },
+  { id: "gadgets", name: "أدوات" },
+  { id: "pet-supplies", name: "مستلزمات الحيوانات الأليفة" },
+  { id: "pet-food", name: "طعام الحيوانات الأليفة" },
+  { id: "plants", name: "نباتات" },
+  { id: "tools", name: "أدوات" },
+  { id: "outdoor-decor", name: "ديكور خارجي" },
+  { id: "parts", name: "قطع غيار" },
+  { id: "service", name: "خدمة" },
 ];
 
 // نطاقات الأسعار
@@ -120,7 +139,7 @@ const Hero: React.FC<HeroProps> = ({ onFilterChange }) => {
 
 
   return (<>
-    <div className="relative w-full bg-gradient-to-r rounded-2xl mt-10 from-blue-900 to-blue-700 text-white overflow-hidden" dir="rtl">
+    <div className="relative w-full bg-gradient-to-r rounded-2xl mt-10 from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-700 text-white overflow-hidden" dir="rtl">
       {/* صورة خلفية بتأثير تراكب */}
       <div className="absolute inset-0 bg-black/40">
         {featuredProduct && featuredProduct.image && (
@@ -168,9 +187,9 @@ const Hero: React.FC<HeroProps> = ({ onFilterChange }) => {
                   )}
                 </div>
               </div>
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900">
+              <Link href={`/products/${featuredProduct.id}`} className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 p-2 rounded-lg font-semibold">
                 تسوق الآن
-              </Button>
+              </Link>
             </div>
           )}
         </div>
@@ -191,7 +210,7 @@ const Hero: React.FC<HeroProps> = ({ onFilterChange }) => {
             <div className="flex gap-2">
               <Button
                 variant="outline"
-                className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300"
+                className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 border-gray-300"
                 onClick={() => setShowFilters(!showFilters)}
               >
                 <Filter size={18} />
