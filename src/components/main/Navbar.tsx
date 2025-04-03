@@ -42,12 +42,12 @@ function Navbar() {
           className="font-bold flex justify-center align-middle items-center"
         >
           <p
-            className={`text-white bg-gray-500 rounded-l-3xl px-2 mb-3 text-sm rounded-tr-3xl`}
+            className={`text-white bg-black rounded-l-3xl px-2 mb-3 text-sm rounded-tr-3xl`}
           >
             daily
           </p>
           <p
-            className={`text-black bg-gray-300 rounded-r-3xl px-2 mt-3 text-sm rounded-bl-3xl`}
+            className={`text-black bg-amber-300 rounded-r-3xl px-2 mt-3 text-sm rounded-bl-3xl`}
           >
             store
           </p>
@@ -94,17 +94,17 @@ function Navbar() {
               تسجيل الدخول
             </LoginLink>
           ) : (
-            <div className="bg-white dark:bg-gray-900 py-2 px-3 rounded-full">
+            <div>
               <button
                 onClick={handleChangeUserInformation}
                 className="flex items-center justify-center gap-2 text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-500"
               >
-                {user?.given_name || "Loading..."} {user?.family_name || ""}
+                {/* {user?.given_name || "Loading..."} {user?.family_name || ""} */}
                 {user?.picture ? (
                   <Image
                     className="rounded-full"
-                    width={30}
-                    height={30}
+                    width={40}
+                    height={40}
                     src={user.picture}
                     alt="user"
                   />
@@ -115,15 +115,15 @@ function Navbar() {
               {showUserInformation && (
                 <div
                   onMouseLeave={handleChangeUserInformation}
-                  className="flex flex-col mt-3 justify-center align-middle items-center right-7 top-14 z-90 fixed bg-white dark:bg-black text-black px-3 py-2 rounded-md shadow-md"
+                  className="flex flex-col mt-3 justify-center align-middle  items-center right-7 top-14 z-90 fixed bg-white dark:bg-stone-600 text-black px-3 py-2 rounded-md shadow-2xl "
                 >
-                  {/* <div className="font-bold uppercase text-xl py-3 dark:text-white"> */}
-                  {/* {user?.given_name} {user?.family_name} */}
-                  {/* </div> */}
+                  <div className="font-bold uppercase text-sm py-3  dark:text-white">
+                  {user?.given_name} {user?.family_name}
+                  </div>
                   <div className="text-sm text-gray-600 dark:text-gray-300 italic">
                     {user?.email}
                   </div>
-                  <LogoutLink className="bg-stone-200 dark:bg-stone-800 text-red-400 w-full py-1 rounded-full  my-3 text-center m-auto">
+                  <LogoutLink className="bg-stone-200 dark:bg-red-600 py-2 text-red-100 w-full  rounded-sm  my-3 text-center m-auto">
                     تسجيل الخروج
                   </LogoutLink>
                 </div>
