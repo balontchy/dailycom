@@ -26,18 +26,18 @@ function Navbar() {
   
   return (
     <nav
-      className={`fixed rounded-2xl top-3 left-0 right-0 w-[95%] md:w-[90%] lg:w-[80%] m-auto backdrop-blur-lg z-50 dark:bg-neutral-900/40 dark:border-gray-700 dark:text-white bg-white/40 border-neutral-300 text-black border shadow-md transition-colors duration-300`}
+      className={`fixed rounded-full top-3 left-0 right-0 w-[95%] md:w-[99%] lg:w-[84%] m-auto backdrop-blur-lg z-50 dark:bg-neutral-600/40 dark:border-gray-700 dark:text-white bg-white/40 border-neutral-300 text-black border shadow-md transition-colors duration-300`}
     >
       <div className="px-4 md:px-6 lg:px-10 py-4 flex justify-between  items-center">
         {/* Logo - Same on mobile and desktop */}
-        <div className="md:text-2xl font-bold flex dark:bg-gray-900/20 bg-white/20    rounded-full p-3 justify-center align-middle items-center">
+        <div className=" font-bold flex  justify-center align-middle items-center">
           <p
-            className={`text-white bg-gray-500 rounded-l-3xl px-2 mb-3 text-md rounded-tr-3xl `}
+            className={`text-white bg-gray-500 rounded-l-3xl px-2 mb-3 text-sm rounded-tr-3xl `}
           >
             daily
           </p>
           <p
-            className={` text-black bg-gray-300 rounded-r-3xl px-2 mt-3 text-md rounded-bl-3xl`}
+            className={` text-black bg-gray-300 rounded-r-3xl px-2 mt-3 text-sm rounded-bl-3xl`}
           >
             store
           </p>

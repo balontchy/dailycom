@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from 'react';
 import { Filter, Search,  } from 'lucide-react';
-import storesData from '../../../../stores.json';
+import storesData from '../../../../json/stores.json';
 import StoreCard from './StoreCard';
 
 // Store data type
 export interface StoreData {
+  id:number;
   name: string;
   image: string;
   description: string;
@@ -70,9 +71,8 @@ const StoreMain: React.FC = () => {
       <div className="container mx-auto">
         {/* Header */}
         <div className="mt-30 text-center">
-      
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-bold text-2xl mb-4">
-            Explore our network of amazing stores offering a wide range of products and services.
+            استكشف شبكتنا من المتاجر المذهلة التي تقدم مجموعة واسعة من المنتجات والخدمات
           </p>
         </div>
 
@@ -80,9 +80,9 @@ const StoreMain: React.FC = () => {
         <div className="mb-8 flex flex-col  justify-between items-center space-y-4 md:space-y-0">
           {/* Search Input */}
           <div className="relative flex justify-around gap-2 align-middle items-center w-full max-w-md mb-3">
-            <input 
-              type="text" 
-              placeholder="Search stores..." 
+            <input
+              type="text"
+              placeholder="Search stores..."
               className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -94,15 +94,17 @@ const StoreMain: React.FC = () => {
           {/* Category Filters */}
           <div className="flex items-center space-x-2">
             <div className="flex space-x-2 bg-gray-100 dark:bg-gray-950 w-auto  scroll-p-2  overflow-x-auto rounded-full p-2">
-              {allCategories.map(category => (
+              {allCategories.map((category) => (
                 <button
                   key={category}
                   onClick={() => toggleCategory(category)}
                   className={`
                     px-3 py-1 rounded-full text-sm transition-all
-                    ${selectedCategories.includes(category) 
-                      ? 'bg-blue-500 text-white' 
-                      : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'}
+                    ${
+                      selectedCategories.includes(category)
+                        ? "bg-blue-500 text-white"
+                        : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                    }
                   `}
                 >
                   {category}
@@ -114,7 +116,7 @@ const StoreMain: React.FC = () => {
 
         {/* Stores Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {paginatedStores.map(store => (
+          {paginatedStores.map((store) => (
             <StoreCard key={store.name} store={store} />
           ))}
         </div>
@@ -147,8 +149,8 @@ const StoreMain: React.FC = () => {
                 onClick={() => handlePageChange(index + 1)}
                 className={`px-4 py-2 rounded-md ${
                   currentPage === index + 1
-                    ? 'bg-blue-500 text-white'
-                    : 'bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300'
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300"
                 } hover:bg-blue-400 dark:hover:bg-blue-600`}
               >
                 {index + 1}

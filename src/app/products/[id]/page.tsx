@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { IProduct } from '../../../../type';
 import { useParams } from 'next/navigation';
-import productJson from '../../../../product.json';
+import productJson from '../../../../json/product.json';
 import Image from 'next/image';
 
 export default function ProductDetail() {

@@ -1,5 +1,5 @@
 "use client";
-import Hero from '@/components/primative/Hero';
+import Hero from '@/components/primative/Products/Hero';
 import { IProduct } from '../../type';
 
 

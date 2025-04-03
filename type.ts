@@ -9,6 +9,7 @@ export interface ISize {
 
 export interface IProduct {
   id: string;
+  store:number;
   name: string;
   description: string;
   price: number;

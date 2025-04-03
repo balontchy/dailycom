@@ -1,4 +1,4 @@
-import { Heart, Home, LayoutDashboardIcon, MessageSquare, ShoppingCart, Store, Truck } from "lucide-react";
+import {  Home, LayoutDashboardIcon, MessageSquare, ShoppingCart, Store, Truck } from "lucide-react";
 
 export interface INav {
   nav: string;
@@ -22,11 +22,11 @@ export const nav: INav[] = [
     link: "/deliveries",
     icon: <Truck className="w-5 h-5" />,
   },
-  {
-    nav: "المفضلة",
-    link: "/favorites",
-    icon: <Heart className="w-5 h-5" />,
-  },
+  // {
+    // nav: "المفضلة",
+    // link: "/favorites",
+    // icon: <Heart className="w-5 h-5" />,
+  // },
   {
     nav: "السلة",
     link: "/cart",

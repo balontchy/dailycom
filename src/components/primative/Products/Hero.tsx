@@ -15,9 +15,9 @@ import {
 */
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { IProduct } from "../../../type";
+import { IProduct } from "../../../../type";
 import { Slider } from "@/components/ui/slider";
-import productsJson from '../../../product.json';
+import productsJson from '../../../../json/product.json';
 import ProductMain from "./ProductMain";
 
 // نحدد الفئات بناءً على بيانات المنتجات المتاحة

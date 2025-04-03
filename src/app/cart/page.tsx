@@ -10,7 +10,7 @@ import {
   ChevronRight 
 } from 'lucide-react';
 import CardSelected from '../../components/primative/cart/cardSelected';
-import cartItems from '../../../product.json';
+import cartItems from '../../../json/product.json';
 import { IProduct } from '../../../type';
 import MainCard from '@/components/primative/cart/mainCard';
 

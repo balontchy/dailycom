@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, ShoppingCart, Eye } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { IProduct } from "../../../type";
+import { IProduct } from "../../../../type";
 
 // Define the product interface
 interface ProductCardProps {

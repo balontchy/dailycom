@@ -10,7 +10,8 @@ const nextConfig: NextConfig = {
        "lh3.googleusercontent.com",
        "platform-lookaside.fbsbx.com",
        "via.placeholder.com",
-       "images.pexels.com"
+       "images.pexels.com",
+       "images.unsplash.com"
     ], // أضف هنا أي نطاقات أخرى تستخدمها للصور
   },
 };

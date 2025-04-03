@@ -1,6 +1,7 @@
 {
   "delivery_services": [
     {
+      "id": 1,
       "name": "Amana Maroc",
       "image": "https://example.com/amana.jpg",
       "description": "Reliable and secure delivery across Morocco.",
@@ -18,6 +19,7 @@
       }
     },
     {
+      "id": 2,
       "name": "Jibli Express",
       "image": "https://example.com/jibli.jpg",
       "description": "Fast and affordable delivery service in Morocco.",
