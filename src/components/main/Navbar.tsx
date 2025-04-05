@@ -8,6 +8,8 @@ import { useTheme } from "@/components/main/themeProvider";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { nav } from "./link";
+import { Button } from "../ui/button";
+import { Card, CardContent } from "../ui/card";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -113,20 +115,25 @@ function Navbar() {
                 )}
               </button>
               {showUserInformation && (
-                <div
+                <Card
                   onMouseLeave={handleChangeUserInformation}
-                  className="flex flex-col mt-3 justify-center align-middle  items-center right-7 top-14 z-90 fixed bg-white dark:bg-stone-600 text-black px-3 py-2 rounded-md shadow-2xl "
+                  className="flex flex-col mt-3 justify-center align-middle items-center right-4 top-14 z-90 fixed  px-3 py-2  "
                 >
-                  <div className="font-bold uppercase text-sm py-3  dark:text-white">
+                  <CardContent className="relative flex flex-col items-center justify-center">
+
+                  <div className="font-bold uppercase text-sm ">
                   {user?.given_name} {user?.family_name}
                   </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-300 italic">
+                  <div className="text-sm italic">
                     {user?.email}
                   </div>
-                  <LogoutLink className="bg-stone-200 dark:bg-red-600 py-2 text-red-500 dark:text-red-100 w-full  rounded-sm  my-3 text-center m-auto">
+                  <LogoutLink>
+                    <Button className="w-full my-2">
                     تسجيل الخروج
+                    </Button>
                   </LogoutLink>
-                </div>
+                  </CardContent>
+                </Card>
               )}
             </div>
           )}
