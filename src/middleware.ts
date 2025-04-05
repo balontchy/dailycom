@@ -6,28 +6,25 @@ import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 const publicPaths = ['/', '/stores', '/products', '/contact'];
 
 export async function middleware(request: NextRequest) {
-  // Get Kinde session
-  const { isAuthenticated } = getKindeServerSession();
-  
-  // Check if the user is authenticated
-  const authenticated = await isAuthenticated();
-  
-  // Get the path from the request URL
-  const path = request.nextUrl.pathname;
-  
-  // Allow access to public paths without authentication
-  if (publicPaths.includes(path)) {
+  try {
+    const { isAuthenticated } = getKindeServerSession();
+    const authenticated = await isAuthenticated();
+
+    const path = request.nextUrl.pathname;
+
+    if (publicPaths.includes(path)) {
+      return NextResponse.next();
+    }
+
+    if ((path === '/cart' || path.startsWith('/dashboard')) && !authenticated) {
+      return NextResponse.redirect(new URL('/api/auth/login', request.url));
+    }
+
     return NextResponse.next();
+  } catch (error) {
+    console.error('Middleware Error:', error);
+    return NextResponse.next(); // Allow the request to proceed even if middleware fails
   }
-  
-  // Block access to dashboard and cart routes if not authenticated
-  if ((path === '/cart' || path.startsWith('/dashboard')) && !authenticated) {
-    // Redirect to login
-    return NextResponse.redirect(new URL('/api/auth/login', request.url));
-  }
-  
-  // Continue for all other cases
-  return NextResponse.next();
 }
 
 // Configure the paths that should be checked by the middleware

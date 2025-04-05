@@ -56,88 +56,84 @@ function Navbar() {
         </Link>
 
         <div className="flex items-center gap-3">
-
-        {/* Desktop Navigation */}
-        <ul className="hidden xl:flex space-x-6 items-center">
-          {nav.map((item, key) => (
-            <Link
-              key={key}
-              href={item.link}
-              className={`flex items-center gap-2 text-sm hover:text-amber-500 font-semibold transition ${
-                path === item.link
-                  ? "text-amber-500"
-                  : "text-black dark:text-white"
-              }`}
-            >
-              {/* <span className="hidden 2xl:flex">{item.icon}</span> */}
-              <span>{item.nav}</span>
-            </Link>
-          ))}
-        </ul>
-
-        <div className="flex gap-3 items-center">
-          {/* Dark mode toggle */}
-          <button
-            className={`p-2 rounded-full dark:bg-gray-700 text-black bg-amber-100 dark:text-amber-600`}
-            onClick={toggleTheme}
-            aria-label={
-              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-            }
-          >
-            {theme === "dark" ? (
-              <Sun className="w-5 h-5" />
-            ) : (
-              <Moon className="w-5 h-5" />
-            )}
-          </button>
-
-          {!isAuthenticated ? (
-            <LoginLink className="bg-blue-400 dark:bg-gray-700 px-3 text-sm text-white font-bold dark:text-blue-50 rounded-full py-3 font-sm">
-              تسجيل الدخول
-            </LoginLink>
-          ) : (
-            <div>
-              <button
-                onClick={handleChangeUserInformation}
-                className="flex items-center justify-center gap-2 text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-500"
+          {/* Desktop Navigation */}
+          <ul className="hidden xl:flex space-x-6 items-center">
+            {nav.map((item, key) => (
+              <Link
+                key={key}
+                href={item.link}
+                className={`flex items-center gap-2 text-sm hover:text-amber-500 font-semibold transition ${
+                  path === item.link
+                    ? "text-amber-500"
+                    : "text-black dark:text-white"
+                }`}
               >
-                {/* {user?.given_name || "Loading..."} {user?.family_name || ""} */}
-                {user?.picture ? (
-                  <Image
-                    className="rounded-full"
-                    width={40}
-                    height={40}
-                    src={user.picture}
-                    alt="user"
-                  />
-                ) : (
-                  <div>{user?.given_name || "User"}</div>
-                )}
-              </button>
-              {showUserInformation && (
-                <Card
-                  onMouseLeave={handleChangeUserInformation}
-                  className="flex flex-col mt-3 justify-center align-middle items-center right-4 top-14 z-90 fixed  px-3 py-2  "
-                >
-                  <CardContent className="relative flex flex-col items-center justify-center">
+                {/* <span className="hidden 2xl:flex">{item.icon}</span> */}
+                <span>{item.nav}</span>
+              </Link>
+            ))}
+          </ul>
 
-                  <div className="font-bold uppercase text-sm ">
-                  {user?.given_name} {user?.family_name}
-                  </div>
-                  <div className="text-sm italic">
-                    {user?.email}
-                  </div>
-                  <LogoutLink>
-                    <Button className="w-full my-2">
-                    تسجيل الخروج
-                    </Button>
-                  </LogoutLink>
-                  </CardContent>
-                </Card>
+          <div className="flex gap-3 items-center">
+            {/* Dark mode toggle */}
+            <button
+              className={`p-2 rounded-full dark:bg-gray-700 text-black bg-amber-100 dark:text-amber-600`}
+              onClick={toggleTheme}
+              aria-label={
+                theme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+              }
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
               )}
-            </div>
-          )}
-        </div>
+            </button>
+
+            {!isAuthenticated ? (
+              <LoginLink>
+                <Button>تسجيل الدخول</Button>
+              </LoginLink>
+            ) : (
+              <div>
+                <button
+                  onClick={handleChangeUserInformation}
+                  className="flex items-center justify-center gap-2 text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-500"
+                >
+                  {/* {user?.given_name || "Loading..."} {user?.family_name || ""} */}
+                  {user?.picture ? (
+                    <Image
+                      className="rounded-full"
+                      width={40}
+                      height={40}
+                      src={user.picture}
+                      alt="user"
+                    />
+                  ) : (
+                    <div>{user?.given_name || "User"}</div>
+                  )}
+                </button>
+                {showUserInformation && (
+                  <Card
+                    onMouseLeave={handleChangeUserInformation}
+                    className="flex flex-col mt-3 justify-center align-middle items-center right-4 top-14 z-90 fixed  px-3 py-2  "
+                  >
+                    <CardContent className="relative flex flex-col items-center justify-center">
+                      <div className="font-bold uppercase text-sm ">
+                        {user?.given_name} {user?.family_name}
+                      </div>
+                      <div className="text-sm italic">{user?.email}</div>
+                      <LogoutLink>
+                        <Button className="w-full my-2">تسجيل الخروج</Button>
+                      </LogoutLink>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+            )}
+          </div>
 
           {/* Mobile menu button */}
           <button
