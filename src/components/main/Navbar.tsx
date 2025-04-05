@@ -33,7 +33,7 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed rounded-xl  top-3 left-0 right-0 w-[95%] md:w-[99%] lg:w-[84%] m-auto backdrop-blur-lg z-50 dark:bg-neutral-600/40 dark:border-gray-700 dark:text-white bg-white/40 border-neutral-300 text-black border shadow-md transition-colors duration-300`}
+      className={`fixed rounded-xl  top-3 left-0 right-0 w-[95%] md:w-[99%] lg:w-[84%] m-auto backdrop-blur-lg z-50 dark:bg-neutral-600/40  dark:text-white bg-white/40  text-black  transition-colors duration-300`}
     >
       <div className="px-4 md:px-6 lg:px-10 py-4 flex justify-between items-center">
         {/* Logo */}
@@ -123,7 +123,7 @@ function Navbar() {
                   <div className="text-sm text-gray-600 dark:text-gray-300 italic">
                     {user?.email}
                   </div>
-                  <LogoutLink className="bg-stone-200 dark:bg-red-600 py-2 text-red-100 w-full  rounded-sm  my-3 text-center m-auto">
+                  <LogoutLink className="bg-stone-200 dark:bg-red-600 py-2 text-red-500 dark:text-red-100 w-full  rounded-sm  my-3 text-center m-auto">
                     تسجيل الخروج
                   </LogoutLink>
                 </div>

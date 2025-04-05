@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { IProduct } from '../../../../type';
 import ProductCard from './ProductCard';
 import { useRouter } from 'next/navigation';
+import { Card } from '@/components/ui/card';
 
 
 export default function ProductMain({ filteredProduct }: { filteredProduct: IProduct[] }) {
@@ -19,9 +20,9 @@ export default function ProductMain({ filteredProduct }: { filteredProduct: IPro
     const paginatedProducts = products.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
     return (
-      <div className="w-full flex flex-col items-center">
-        <div className=" bg-white m-auto dark:bg-gray-900 w-full mb-10 flex flex-col justify-center align-middle items-center   rounded-2xl p-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+      <div className="w-full h-full flex flex-col items-center">
+        <Card className="px-6">
+          <div className="grid w-full min-h-screen grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
             {paginatedProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -30,9 +31,9 @@ export default function ProductMain({ filteredProduct }: { filteredProduct: IPro
               />
             ))}
           </div>
-        </div>
+        </Card>
 
-        <div className=" flex space-x-2">
+        <div className=" flex space-x-2 my-10">
           <Button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(currentPage - 1)}

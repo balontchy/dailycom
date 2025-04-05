@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Package, ShoppingBag, User } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 
 const menuItems = [
   { name: "Profile", href: "/dashboard/profile", icon: <User size={20} /> },
@@ -13,15 +15,14 @@ export default function DashboardSideBar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 my-30 h-screen bg-gray-900 text-white p-5 ml-5 rounded-lg">
-      <h2 className="text-xl font-bold mb-5 flex items-center">
+    <Card className="w-64 my-30 min-h-screen h-full  p-5 ml-5 rounded-lg">
+      <Label  className="text-xl font-bold mb-5 flex items-center">
         <Home className="mr-2" /> Dashboard
-      </h2>
+      </Label>
       <nav>
-        <ul>
+        <ul className="space-y-2 flex flex-col gap-1">
           {menuItems.map(({ name, href, icon }) => (
-            <li key={href} className="mb-3">
-              <Link href={href}>
+              <Link key={name} href={href} >
                 <div
                   className={`flex items-center px-4 py-2 rounded-lg cursor-pointer ${
                     pathname === href ? "bg-gray-700" : "hover:bg-gray-800"
@@ -31,10 +32,9 @@ export default function DashboardSideBar() {
                   <span className="ml-3">{name}</span>
                 </div>
               </Link>
-            </li>
           ))}
         </ul>
       </nav>
-    </aside>
+    </Card>
   );
 }

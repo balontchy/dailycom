@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from 'react';
-import { Filter, Search,  } from 'lucide-react';
+import { Filter } from 'lucide-react';
 import storesData from '../../../../json/stores.json';
 import StoreCard from './StoreCard';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 // Store data type
 export interface StoreData {
@@ -94,7 +96,7 @@ const StoreMain: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-black p-6">
       <div className="container mx-auto">
         {/* Header */}
         <div className="mt-30 text-center">
@@ -108,14 +110,14 @@ const StoreMain: React.FC = () => {
         <div className="mb-8 flex flex-col  justify-between items-center space-y-4 md:space-y-0">
           {/* Search Input */}
           <div className="relative flex justify-around gap-2 align-middle items-center w-full max-w-md mb-3">
-            <input
+            <Input
               type="text"
               placeholder="Search stores..."
-              className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500"
+              // className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Search className="absolute left-3 top-3 text-gray-400" size={18} />
+            {/* <Search className="absolute left-3 top-3 text-gray-400" size={18} /> */}
             <Filter
               onClick={toggleFilter}
               className="text-gray-500 mx-2"
@@ -172,33 +174,33 @@ const StoreMain: React.FC = () => {
         {/* Pagination Controls */}
         {filteredStores.length > itemsPerPage && (
           <div className="mt-8 flex justify-center items-center space-x-2">
-            <button
+            <Button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-600 disabled:opacity-50"
+              // className="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-600 disabled:opacity-50"
             >
               Previous
-            </button>
+            </Button>
             {Array.from({ length: totalPages }, (_, index) => (
-              <button
+              <Button
                 key={index}
                 onClick={() => handlePageChange(index + 1)}
                 className={`px-4 py-2 rounded-md ${
                   currentPage === index + 1
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300"
-                } hover:bg-blue-400 dark:hover:bg-blue-600`}
+                    ? "dark:text-black text-white"
+                    : ""
+                } `}
               >
                 {index + 1}
-              </button>
+              </Button>
             ))}
-            <button
+            <Button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-600 disabled:opacity-50"
+              // className="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-600 disabled:opacity-50"
             >
               Next
-            </button>
+            </Button>
           </div>
         )}
       </div>

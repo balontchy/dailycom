@@ -1,6 +1,6 @@
 // ProfileForm.tsx
 "use client";
-import { useState } from 'react';
+import {  useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,11 +8,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent,  CardHeader, CardTitle } from "@/components/ui/card";
 import { Trash2, Plus } from "lucide-react";
 import { Avatar  } from "@/components/ui/avatar";
-
+import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
 import { toast } from 'sonner';
 import Image from 'next/image';
-
-// Define the interfaces
 
 export interface IAddress {
   id: number;
@@ -22,7 +20,7 @@ export interface IAddress {
   zipcode: string;
 }
 export interface IProfile {
-  id: string;
+  id:string;
   firstname: string;
   lastname: string;
   mobile:string;
@@ -49,7 +47,7 @@ const emptyAddress: IAddress = {
 
 // Default profile for initialization
 const defaultProfile: IProfile = {
-  id: "",
+  id:``,
   firstname: "",
   lastname: "",
   mobile: "",
@@ -66,8 +64,85 @@ export interface ProfileFormProps {
   onSubmit: (profile: IProfile) => void;
 }
 
-export default function ProfileForm({ initialProfile = defaultProfile, onSubmit }: ProfileFormProps) {
-  const [profile, setProfile] = useState<IProfile>(initialProfile);
+async function post(url: string, profile: IProfile) {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(profile), // Use the `profile` state here
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to save profile');
+    }
+
+    const data = await response.json();
+    console.log('Profile saved successfully:', data);
+    toast.success('ثمت حفظ الملف الشخصي بنجاح');
+  } catch (error) {
+    console.error('Error:', error);
+    toast.error('Failed to save profile');
+  }
+}
+async function get(url: string, { params }: { params: { id: string } }): Promise<IProfile | undefined> {
+  try {
+    const response = await fetch(`${url}/${params.id}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+
+    const data = await response.json();
+    console.log('Fetched data:', data);
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    toast.error('Failed to fetch data');
+    return undefined;
+  }
+}
+
+async function put(url: string, profile: IProfile) {
+  try {
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(profile),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update profile');
+    }
+
+    const data = await response.json();
+    console.log('Profile updated successfully:', data);
+    toast.success('ثمت تحديث الملف الشخصي بنجاح');
+  } catch (error) {
+    console.error('Error:', error);
+    toast.error('Failed to update profile');
+  }
+}
+
+export default function ProfileForm() {
+  const { user } = useKindeAuth(); // Assuming 'user' is the correct property in KindeState
+  defaultProfile.id = user?.id || "";
+  defaultProfile.firstname = user?.given_name || "";
+  defaultProfile.lastname = user?.family_name || "";
+  defaultProfile.email = user?.email || "";
+  defaultProfile.image = user?.picture || "";
+  defaultProfile.admin = false;
+  const [profile, setProfile] = useState<IProfile>(defaultProfile);
+  
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isUpdating, setIsUpdating] = useState(false);
+
+
 
   // Handle form input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -117,17 +192,36 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
     }));
   };
 
+
+
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  async function  handleSubmit (e: React.FormEvent) {
     e.preventDefault();
-    onSubmit(profile);
+    // console.log('Profile submitted:', profile);
+    await post('/api/profiles', profile)
+    
   };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async function handleUpdate (e: React.FormEvent) {
+    e.preventDefault();
+    // console.log('Profile submitted:', profile);
+    await put(`/api/profiles/}`, profile)
+  };
+  async function handleProfile (){
+ const profileData = await get(`/api/profiles/`, { params: { id: profile.id } });
+      if (profileData) {
+        setProfile(profileData);
+        setIsUpdating(true);
+      }
+      setIsUpdating(false);
+  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8 max-w-4xl mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle>Profile Information</CardTitle>
+          <CardTitle>معلوماتك الشخصية</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           {/* Profile Image */}
@@ -136,7 +230,7 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
               <Image
                 width={96}
                 height={96}
-                src={initialProfile.image}
+                src={defaultProfile.image}
                 alt="Profile Image"
               />
             </Avatar>
@@ -144,21 +238,21 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
           {/* Personal Information */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Label htmlFor="firstname">First Name</Label>
+              <Label htmlFor="firstname">اسم الشخصي</Label>
               <Input
                 id="firstname"
                 name="firstname"
-                value={initialProfile.firstname}
+                value={defaultProfile.firstname}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="lastname">Last Name</Label>
+              <Label htmlFor="lastname">إسم العائلي</Label>
               <Input
                 id="lastname"
                 name="lastname"
-                value={initialProfile.lastname}
+                value={defaultProfile.lastname}
                 onChange={handleChange}
                 required
               />
@@ -166,18 +260,18 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">الإميل</Label>
             <Input
               id="email"
               name="email"
               type="email"
-              value={initialProfile.email}
+              value={defaultProfile.email}
               onChange={handleChange}
               required
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="Mobile">Mobile</Label>
+            <Label htmlFor="Mobile">الهاتف</Label>
             <Input
               id="mobile"
               name="mobile"
@@ -190,7 +284,7 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
 
           {/* Role Checkboxes */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium">Roles</h3>
+            <h3 className="text-lg font-medium">ماهي تطلعاتك المستقبلية يمكنك تركهما خاليتان و التعديل عليهم في المستقبل</h3>
             <div className="flex flex-wrap gap-6">
               <div className="flex items-center space-x-2">
                 <Checkbox
@@ -201,7 +295,7 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
                     setProfile((prev) => ({ ...prev, store: checked === true }))
                   }
                 />
-                <Label htmlFor="store">Store</Label>
+                <Label htmlFor="store">متجر</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <Checkbox
@@ -215,19 +309,9 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
                     }))
                   }
                 />
-                <Label htmlFor="delivery">Delivery</Label>
+                <Label htmlFor="delivery">خدمات التوصيل</Label>
               </div>
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="admin"
-                  name="admin"
-                  checked={profile.admin}
-                  onCheckedChange={(checked) =>
-                    setProfile((prev) => ({ ...prev, admin: checked === true }))
-                  }
-                />
-                <Label htmlFor="admin">Admin</Label>
-              </div>
+            
             </div>
           </div>
         </CardContent>
@@ -236,7 +320,7 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
       {/* Addresses */}
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>Addresses</CardTitle>
+          <CardTitle>العناوين الخاصة بك يمكنك اضافة اكثر من عنوان عبر الضغط على الزر باليسار</CardTitle>
           <Button
             type="button"
             variant="outline"
@@ -265,7 +349,7 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
 
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor={`street-${index}`}>Street</Label>
+                  <Label htmlFor={`street-${index}`}>الشارع</Label>
                   <Input
                     id={`street-${index}`}
                     value={address.street}
@@ -278,7 +362,7 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor={`city-${index}`}>City</Label>
+                    <Label htmlFor={`city-${index}`}>المدينة</Label>
                     <Input
                       id={`city-${index}`}
                       value={address.city}
@@ -302,7 +386,7 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor={`country-${index}`}>Country</Label>
+                  <Label htmlFor={`country-${index}`}>الدولة</Label>
                   <Input
                     id={`country-${index}`}
                     value={address.country}
@@ -319,6 +403,9 @@ export default function ProfileForm({ initialProfile = defaultProfile, onSubmit 
       </Card>
 
       <div className="flex justify-end">
+        <Button type="button" variant="outline" size="lg" onClick={handleProfile}>
+          تحديث البيانات
+        </Button>
         <Button type="submit" size="lg">
           Save Profile
         </Button>

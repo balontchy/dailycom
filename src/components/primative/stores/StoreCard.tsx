@@ -9,7 +9,7 @@ const [showVerfied, setShowVerified] = React.useState(false);
 
   return (
     <Link href={`stores/${store.id}`}
-     className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+     className="bg-white dark:bg-black border dark:border-neutral-700 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
       {/* Store Image */}
       <div className="relative h-48 w-full">
         <Image
@@ -41,12 +41,12 @@ const [showVerfied, setShowVerified] = React.useState(false);
             onMouseLeave={() => setShowVerified(false)}
             className="absolute bottom-3 right-3  w-auto px-3 py-2 text-center border shadow-md rounded-full  flex items-center aling-middle justify-center space-x-1"
           >
-            <div className="flex jusitfy-center items-center align-middle space-x-1">
-              <div className="text-sm italic text-amber-600   w-full">
+            <div className="flex jusitfy-center dark:text-white text-dark items-center align-middle space-x-1">
+              <div className="text-sm italic w-full mt-1">
                 Verifeid
               </div>
               {store.verified ? (
-                <Verified className="text-green-500 text-sm w-full h-full   " />
+                <Verified className=" text-sm w-full h-full   " />
               ) : null}
             </div>
           </div>

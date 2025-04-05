@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   return (
     <Card 
-      className="w-full max-w-xs border border-gray-200 dark:border-gray-700 overflow-hidden rounded-lg transition-all duration-300 hover:shadow-md bg-white dark:bg-gray-800 relative"
+      className="w-full max-w-xs border border-gray-200 dark:border-gray-700 overflow-hidden rounded-lg h-[450px] transition-all duration-300 hover:shadow-md  relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
