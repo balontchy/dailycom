@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Search, Filter, X, Smartphone, ShoppingBag, Star } from "lucide-react";
+import { Search,  X, Smartphone, ShoppingBag, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // Commented dropdown imports properly
 /*
@@ -209,37 +209,34 @@ const Hero: React.FC<HeroProps> = ({ onFilterChange }) => {
           {/* مربع البحث الرئيسي */}
           <div className=" rounded-xl p-4 md:p-6 shadow-lg max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-center gap-4">
-              <div className="relative flex-grow">
+              <div className="relative flex-grow flex items-center bg-white/10 backdrop-blur-sm rounded-lg p-2">
                 <Search
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
                   size={20}
+                  className="ml-3"
                 />
                 <Input
                   type="text"
                   placeholder="ابحث عن منتجات..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-4 pr-10 py-3 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 transition text-gray-800 text-right"
                 />
               </div>
               <div className="flex gap-2">
                 <Button
                   variant="outline"
-                  className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 border-gray-300"
                   onClick={() => setShowFilters(!showFilters)}
                 >
-                  <Filter size={18} />
-                  <span>الفلاتر</span>
+                  <span className="text-black dark:text-white">الفلاتر</span>
                   {(selectedCategories.length > 0 ||
                     priceRange[0] > 0 ||
                     priceRange[1] < 2000) && (
-                    <Badge className="bg-blue-600 hover:bg-blue-700 text-white text-xs mr-1">
+                    <Badge className="bg-blue-600 hover:bg-blue-700  text-xs mr-1">
                       {selectedCategories.length +
                         (priceRange[0] > 0 || priceRange[1] < 2000 ? 1 : 0)}
                     </Badge>
                   )}
                 </Button>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Button >
                   بحث
                 </Button>
               </div>
@@ -256,9 +253,9 @@ const Hero: React.FC<HeroProps> = ({ onFilterChange }) => {
 
             {/* قسم الفلاتر */}
             {showFilters && (
-              <div className="mt-4 pt-4 border-t border-gray-200">
+              <div className="mt-4 pt-4 border-t border-gray-200 bg-white text-black duration-200  dark:bg-black dark:text-white p-5 rounded-xl border dark:border-gray-700">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-medium text-gray-800">
+                  <h3 className="font-medium ">
                     الفلاتر المتقدمة
                   </h3>
                   {(selectedCategories.length > 0 ||
@@ -266,7 +263,7 @@ const Hero: React.FC<HeroProps> = ({ onFilterChange }) => {
                     priceRange[1] < 2000) && (
                     <Button
                       variant="ghost"
-                      className="text-gray-600 hover:text-gray-800 text-sm flex items-center gap-1"
+                      className="  text-sm flex items-center gap-1"
                       onClick={clearFilters}
                     >
                       <X size={14} />
@@ -275,7 +272,7 @@ const Hero: React.FC<HeroProps> = ({ onFilterChange }) => {
                   )}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-800">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                   {/* فلتر الفئات */}
                   <div>
                     <label className="block mb-2 font-medium text-sm">
@@ -312,7 +309,7 @@ const Hero: React.FC<HeroProps> = ({ onFilterChange }) => {
                         onValueChange={handlePriceRangeChange}
                         className="mb-4"
                       />
-                      <div className="flex justify-between text-sm text-gray-600">
+                      <div className="flex justify-between text-sm">
                         <span>{priceRange[0]} درهم</span>
                         <span>{priceRange[1]} درهم</span>
                       </div>
@@ -338,7 +335,7 @@ const Hero: React.FC<HeroProps> = ({ onFilterChange }) => {
           </div>
 
           {/* شارات المميزات - لتعزيز تجربة المستخدم */}
-          <Card className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <Card className="mt-8 grid grid-cols-2 md:grid-cols-4 border-none gap-4 text-center bg-blue-900/60 p-4 rounded-lg">
             <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
               <div className="flex justify-center mb-2">
                 <ShoppingBag className="text-blue-300" size={24} />

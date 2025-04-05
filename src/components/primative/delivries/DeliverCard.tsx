@@ -3,29 +3,31 @@ import Image from 'next/image';
 import { Clock, MapPin, Star } from 'lucide-react';
 import { DeliveryCompany } from '@/app/deliveries/page';
 import Link from 'next/link';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Avatar } from '@radix-ui/react-avatar';
 
 const DeliveryCompanyCard = ({ company }: { company: DeliveryCompany }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden h-full">
-      <div className={`bg-gradient-to-r ${company.theme} p-5`}>
+    <Card className='flex flex-col justify-between w-full h-full bg-white dark:bg-black border dark:border-neutral-700 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl'>
+      <CardHeader className={`bg-gradient-to-r ${company.theme} p-5`}>
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-bold text-white">{company.name}</h2>
-          <div className="bg-white dark:bg-gray-700 p-2 rounded-full">
+          <Avatar>
             <Image
               width={40}
               height={40}
-              src="/api/placeholder/40/40"
+              src="/next.svg"
               alt={`${company.name} Logo`}
               className="h-8 w-8 rounded-full"
             />
-          </div>
+          </Avatar>
         </div>
         <p className="text-white text-opacity-90 mt-1 text-sm">
           {company.description}
         </p>
-      </div>
+      </CardHeader>
 
-      <div className="p-5">
+      <CardContent className="">
         <div className="space-y-3">
           <div className="flex items-center">
             <MapPin className="h-4 w-4 text-gray-500 dark:text-gray-400 mr-2" />
@@ -49,32 +51,14 @@ const DeliveryCompanyCard = ({ company }: { company: DeliveryCompany }) => {
           </div>
         </div>
 
-        {/* {company.cities && (
-          <div className="mt-4">
-            <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Popular Destinations
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {company.cities.map((city, index) => (
-                <span
-                  key={index}
-                  className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs text-gray-700 dark:text-gray-300"
-                >
-                  {city}
-                </span>
-              ))}
-            </div>
-          </div>
-        )} */}
-
-          <Link
-            className={` mt-5 flex items-center justify-center w-full py-2 ${company.buttonTheme} text-white text-sm font-medium rounded-lg transition-colors`}
-            href={`/deliveries/${company.id}`}
-          >
-            View Details
-          </Link>
-      </div>
-    </div>
+        <Link
+          className={` mt-5 flex items-center justify-center w-full py-2 ${company.buttonTheme} text-white text-sm font-medium rounded-lg transition-colors`}
+          href={`/deliveries/${company.id}`}
+        >
+          View Details
+        </Link>
+      </CardContent>
+    </Card>
   );
 };
 
