@@ -203,18 +203,18 @@ export default function ProfileForm() {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async function handleUpdate (e: React.FormEvent) {
+  async function handleUpdate(e: React.FormEvent) {
     e.preventDefault();
-    // console.log('Profile submitted:', profile);
-    await put(`/api/profiles/}`, profile)
-  };
-  async function handleProfile (){
- const profileData = await get(`/api/profiles/`, { params: { id: profile.id } });
-      if (profileData) {
-        setProfile(profileData);
-        setIsUpdating(true);
-      }
-      setIsUpdating(false);
+    await put('/api/profiles', profile);
+  }
+
+  async function handleProfile(email:string) {
+    const profileData = await get('/api/profiles', { params: { id: email } });
+    if (profileData) {
+      setProfile(profileData);
+      setIsUpdating(true);
+    }
+    setIsUpdating(false);
   }
 
   return (
@@ -403,7 +403,7 @@ export default function ProfileForm() {
       </Card>
 
       <div className="flex justify-end">
-        <Button type="button" variant="outline" size="lg" onClick={handleProfile}>
+        <Button type="button" variant="outline" size="lg" onClick={() => handleProfile(profile.email)}>
           تحديث البيانات
         </Button>
         <Button type="submit" size="lg">

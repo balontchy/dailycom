@@ -100,6 +100,102 @@ const companies = [
         comment: "Delivery was a bit slow, but everything arrived safely."
       }
     ]
+  },
+  {
+    id: 3,
+    name: "Chrono Maroc",
+    description: "Express delivery service with guaranteed on-time delivery.",
+    logo: "/api/placeholder/80/80",
+    coverImage: "/api/placeholder/800/200",
+    contact: {
+      phone: "+212522123456",
+      email: "contact@chronomaroc.ma",
+      website: "www.chronomaroc.ma",
+      address: "Rue de Paris, Casablanca, Morocco"
+    },
+    rating: 4.8,
+    reviewCount: 1450,
+    foundedYear: 2005,
+    employees: "500+",
+    coverage: "Major Moroccan cities",
+    internationalShipping: false,
+    trackingAvailable: true,
+    insurance: "Up to 7,000 MAD included",
+    paymentMethods: ["Cash on Delivery", "Credit Card"],
+    serviceTypes: ["Express Delivery", "Same-Day Delivery", "Overnight Shipping"],
+    certifications: ["ISO 14001", "Fast Delivery Award 2024"],
+    averageDeliveryTime: "6-12 hours",
+    theme: "from-red-500 to-red-700",
+    buttonTheme: "bg-red-500 hover:bg-red-600",
+    pricing: {
+      Casablanca: { price: "50 MAD", deliveryTime: "6 hours" },
+      Rabat: { price: "55 MAD", deliveryTime: "8 hours" },
+      Marrakech: { price: "60 MAD", deliveryTime: "10 hours" },
+      Tangier: { price: "65 MAD", deliveryTime: "12 hours" },
+      Fes: { price: "58 MAD", deliveryTime: "10 hours" }
+    },
+    customerReviews: [
+      {
+        name: "Amina T.",
+        rating: 5,
+        date: "March 5, 2025",
+        comment: "Super fast delivery! Highly recommend Chrono Maroc."
+      },
+      {
+        name: "Rachid B.",
+        rating: 4,
+        date: "March 12, 2025",
+        comment: "Great service, but a bit expensive for smaller packages."
+      }
+    ]
+  },
+  {
+    id: 4,
+    name: "FastGo",
+    description: "Affordable and fast delivery services for businesses and individuals.",
+    logo: "/api/placeholder/80/80",
+    coverImage: "/api/placeholder/800/200",
+    contact: {
+      phone: "+212600987654",
+      email: "support@fastgo.ma",
+      website: "www.fastgo.ma",
+      address: "Boulevard Zerktouni, Casablanca, Morocco"
+    },
+    rating: 4.5,
+    reviewCount: 1200,
+    foundedYear: 2010,
+    employees: "300+",
+    coverage: "All cities in Morocco",
+    internationalShipping: false,
+    trackingAvailable: true,
+    insurance: "Up to 3,000 MAD included",
+    paymentMethods: ["Cash on Delivery", "Mobile Payment"],
+    serviceTypes: ["Standard Delivery", "Express Delivery"],
+    certifications: ["Customer Satisfaction Award 2023"],
+    averageDeliveryTime: "12-24 hours",
+    theme: "from-green-500 to-green-700",
+    buttonTheme: "bg-green-500 hover:bg-green-600",
+    pricing: {
+      Casablanca: { price: "22 MAD", deliveryTime: "12 hours" },
+      Rabat: { price: "28 MAD", deliveryTime: "12 hours" },
+      Agadir: { price: "35 MAD", deliveryTime: "18 hours" },
+      Marrakech: { price: "30 MAD", deliveryTime: "18 hours" },
+      Tangier: { price: "40 MAD", deliveryTime: "24 hours" }
+    },
+    customerReviews: [
+      {
+        name: "Hassan J.",
+        rating: 5,
+        date: "March 8, 2025",
+        comment: "Affordable and reliable. Perfect for small businesses."
+      },
+      {
+        name: "Nadia F.",
+        rating: 4,
+        date: "March 18, 2025",
+        comment: "Good service, but tracking could be improved."
+      }
+    ]
   }
 ];
 

@@ -55,7 +55,7 @@ export interface Pricing {
   [city: string]: {
     price: string
     deliveryTime: string
-  }
+  } | undefined;
 }
 // Delivery Company Card Component
 
